@@ -1,0 +1,4 @@
+configuration {
+  drun-icon-theme: "Papirus";
+}
+@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
