@@ -210,4 +210,3 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id [ "$(wmctrl -l | grep "Google Chrome" | grep "$ws1")" ] || (google-chrome-stable --new-window --class=chrome && sleep 1 && i3-msg '[class="^Google-chrome$"]' move workspace $ws1)
 exec --no-startup-id xinput --set-prop 14 'libinput Accel Speed' 2
 bindsym Print exec --no-startup-id scrot '%Y-%m-%d-%H-%M-%S_$wx$h.png' -e 'mv $f ~/Pictures/'
-
