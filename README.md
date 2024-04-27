@@ -16,9 +16,9 @@ Welcome to my personal configuration files repository! This repository contains 
 
 - **Website:** [Neovim](https://neovim.io/)
 
-### Bar: i3blocks
+### Bar: Polybar
 
-- **GitHub Repository:** [i3blocks](https://github.com/vivien/i3blocks)
+- **GitHub Repository:** [Polybar](https://github.com/polybar/polybar)
 
 ### Application Launcher: Rofi
 
