@@ -1,0 +1,11 @@
+[Unit]
+Description=Battery Notification Script
+
+[Service]
+ExecStart=/home/vishal/.config/script/battery_notify.sh
+Type=simple
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
+
