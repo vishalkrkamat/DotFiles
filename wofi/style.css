@@ -11,7 +11,7 @@
   margin: auto;
   padding: 10px;
   border-radius: 20px;
-  border: 2px solid #e95420;
+  border: 5px solid #1e2030;
 }
 
 #input {
@@ -43,4 +43,6 @@
   margin: 2px;
 }
 
-#text:selected {}
+#text:selected {
+  font-weight: bolder;
+}
