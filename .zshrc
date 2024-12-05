@@ -1,11 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="bira"
@@ -85,29 +85,75 @@ export LANG=en_US.UTF-8
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
-#
 eval "$(zoxide init zsh)"
-# Example aliases
-
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval "$(atuin init zsh)"
 
 alias ll='ls -la'
 alias v='nvim'
 alias sv='sudo -E nvim'
-#function used as command it bit complexed
 f() {
   fzf --preview 'bat --style=numbers --color=always --line-range=:500 {} || tree -C {}' --bind 'enter:execute(nvim {})'
+}
+# Create a new tmux session
+alias tmn="tmux new-session -s"
+
+# List all tmux sessions
+alias tml="tmux ls"
+
+
+# Function to kill tmux session
+tmk() {
+  # List active tmux sessions and select one using fzf
+  session=$(tmux ls | fzf --height 40% --reverse --prompt "Select tmux session to kill: ")
+
+  # If a session is selected, kill it
+  if [[ -n $session ]]; then
+    session_name=$(echo $session | awk '{print $1}')
+    tmux kill-session -t $session_name
+    echo "Killed tmux session: $session_name"
+  else
+    echo "No session selected"
+  fi
+}
+
+
+# Function to attach to a tmux session
+tma() {
+  # List active tmux sessions and select one using fzf
+  session=$(tmux ls | fzf --height 40% --reverse --prompt "Select tmux session to attach: ")
+
+  # If a session is selected, attach to it
+  if [[ -n $session ]]; then
+    session_name=$(echo $session | awk '{print $1}')
+    tmux attach -t $session_name
+    echo "Attached to tmux session: $session_name"
+  else
+    echo "No session selected"
+  fi
+}
+
+
+# Function to detach from the current tmux session
+tmd() {
+  # Check if we're inside a tmux session
+  if [ -n "$TMUX" ]; then
+    tmux detach
+    echo "Detached from the current tmux session."
+  else
+    echo "Not inside a tmux session. No action taken."
+  fi
 }
