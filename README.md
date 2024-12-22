@@ -1,36 +1,28 @@
-Personal Configuration Files Repository
+# Personal Configuration Files Repository
 
 Welcome to my personal configuration files repository! This repository contains the configuration files for various applications that I use on a daily basis. Feel free to explore and adapt these configurations to suit your preferences.
-Applications and Configurations
-Window Manager: Hyprland
 
-    Website: Hyprland
+## Applications and Configurations
 
-Terminal Emulator: Kitty
+### Window Manager: Hyprland
+- **Website:** [Hyprland](https://github.com/hyprwm/Hyprland)
 
-    Website: Kitty
+### Terminal Emulator: Kitty
+- **Website:** [Kitty](https://sw.kovidgoyal.net/kitty/)
 
-Text Editor: Neovim
+### Text Editor: Neovim
+- **Website:** [Neovim](https://neovim.io/)
 
-    Website: Neovim
+### Bar: Waybar
+- **GitHub Repository:** [Waybar](https://github.com/Alexays/Waybar)
 
-Bar: Waybar
+### Application Launcher: Fuzzel
+- **GitHub Repository:** [Fuzzel](https://github.com/joshkuhns/fuzzel)
 
-    GitHub Repository: Waybar
-
-Application Launcher: Fuzzel
-
-    GitHub Repository: Fuzzel
-
-Usage
+## Usage
 
 To use these configurations:
 
-    Clone this repository to your local machine.
-    Navigate to the directory of the application whose configuration you want to use.
-    Replace your existing configuration files with the ones from this repository.
-    Customize the configurations according to your preferences if necessary.
-
-Contribution
-
-If you have any suggestions, improvements, or new configurations to add, feel free to open an issue or pull request. Contributions are welcome!
+1. Clone this repository to your local machine.
+   ```bash
+   git clone https://github.com/your-username/repository-name.git
