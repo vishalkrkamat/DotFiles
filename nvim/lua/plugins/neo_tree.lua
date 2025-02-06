@@ -7,9 +7,10 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>", {})
+		vim.keymap.set("n", "<C-n>", ":Neotree toggle<CR>", { silent = true })
+
 		-- Key mapping to switch focus between Neo-tree and code window
-		vim.keymap.set("n", "<C-t>", function()
+		vim.keymap.set("n", "<C-i>", function()
 			-- Check if Neo-tree is open and focus it or the other window
 			if vim.fn.bufname():match("Neotree") then
 				vim.cmd("wincmd p") -- Switch to the previous window
