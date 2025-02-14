@@ -1,7 +1,5 @@
 -- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
 
---  See `:help hlsearch`
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
@@ -17,7 +15,7 @@ vim.keymap.set("n", "<Tab>q", ":q!<CR>", { desc = "Quit!" })
 --  Use CTRL+<hjkl> to switch between windows
 --
 
-vim.keymap.set("t", "<C-u>", [[<C-\><C-n>:w<CR>:!gcc % -o %:r && ./%:r<CR>]], { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>g", ":w<CR>:term gcc % -o %< && ./%< <CR>", { silent = true })
 -- Map Ctrl + u in terminal mode
 --  See `:help wincmd` for a list of all window commands
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
@@ -25,18 +23,30 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
-local function toggle_vsplit()
-	local windows = vim.api.nvim_tabpage_list_wins(0)
-	if #windows > 1 then
-		-- If more than one window is open, close the last one
-		vim.cmd("close")
+local split_winid = nil
+
+local function toggle_hsplit()
+	if split_winid and vim.api.nvim_win_is_valid(split_winid) then
+		vim.api.nvim_win_close(split_winid, true)
+		split_winid = nil
 	else
-		-- If only one window is open, perform a vertical split
-		vim.cmd("vsplit")
+		vim.cmd("split")
+		split_winid = vim.api.nvim_get_current_win()
 	end
 end
 
-vim.keymap.set("n", "vs", toggle_vsplit, { noremap = true, silent = true })
+local function toggle_vsplit()
+	if split_winid and vim.api.nvim_win_is_valid(split_winid) then
+		vim.api.nvim_win_close(split_winid, true)
+		split_winid = nil
+	else
+		vim.cmd("vsplit")
+		split_winid = vim.api.nvim_get_current_win()
+	end
+end
+
+vim.keymap.set("n", "sh", toggle_hsplit, { noremap = true, silent = true })
+vim.keymap.set("n", "sv", toggle_vsplit, { noremap = true, silent = true })
 --vim.keymap.set("n", "vs", "<cmd>vsplit<CR>", { noremap = true, silent = true })
 --
 -- TIP: Disable arrow keys in normal mode
