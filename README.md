@@ -17,7 +17,7 @@ Welcome to my personal configuration files repository! This repository contains 
 - **GitHub Repository:** [Waybar](https://github.com/Alexays/Waybar)
 
 ### Application Launcher: Fuzzel
-- **GitHub Repository:** [Fuzzel](https://github.com/joshkuhns/fuzzel)
+- **GitHub Repository:** [Fuzzel](https://codeberg.org/dnkl/fuzzel)
 
 ## Usage
 
