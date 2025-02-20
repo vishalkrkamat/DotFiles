@@ -35,7 +35,7 @@
         },
         "sort-by-number": true,
         "persistent-workspaces": {
-            "*": 3,
+            "*": 2,
             "HDMI-A-1": 3
         }
     },
