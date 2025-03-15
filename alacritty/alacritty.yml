@@ -1,0 +1,63 @@
+# ─────────────────────────────────────────────
+# Minimal Alacritty Config for Arch + Hyprland
+# ─────────────────────────────────────────────
+
+# Font settings (JetBrainsMono recommended)
+font:
+  normal:
+    family: "JetBrainsMono Nerd Font"
+    style: Regular
+  bold:
+    family: "JetBrainsMono Nerd Font"
+    style: Bold
+  italic:
+    family: "JetBrainsMono Nerd Font"
+    style: Italic
+  bold_italic:
+    family: "JetBrainsMono Nerd Font"
+    style: Bold Italic
+  size: 12
+
+# Window settings (for Hyprland + Wayland)
+window:
+  padding:
+    x: 10
+    y: 10
+  dynamic_padding: true
+  opacity: 0.85
+  decorations: none  # Removes title bar
+
+# Enable Wayland compatibility
+env:
+  WINIT_UNIX_BACKEND: "wayland"
+
+# Cursor style
+cursor:
+  style:
+    shape: Beam  # Options: Block, Underline, Beam
+    blinking: Always
+
+# Colors (Dracula-inspired)
+colors:
+  primary:
+    background: "#1E1E2E"
+    foreground: "#CDD6F4"
+  normal:
+    black: "#45475A"
+    red: "#F38BA8"
+    green: "#A6E3A1"
+    yellow: "#F9E2AF"
+    blue: "#89B4FA"
+    magenta: "#F5C2E7"
+    cyan: "#94E2D5"
+    white: "#BAC2DE"
+
+# Scrollback buffer
+scrolling:
+  history: 5000
+
+# Keybindings (Optional)
+key_bindings:
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: Return, mods: Alt, action: ToggleFullscreen }
