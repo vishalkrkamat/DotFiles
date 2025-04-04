@@ -84,7 +84,7 @@ background-color: rgba(0, 0, 0, 0);
 
 .modules-right, .modules-left, .modules-center {
     background-color: @base;
-    border-radius: 15px;
+    border-radius: 8px;
 }
 
 .modules-right {

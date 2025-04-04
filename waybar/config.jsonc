@@ -12,9 +12,7 @@
     "modules-right": [
         "pulseaudio",
         "network",
-       // "temperature",
         "battery",
-        //"custom/brightness",
         "clock"
     ],
     "hyprland/window": {
@@ -44,32 +42,7 @@
         "format-alt": "{:%Y-%m-%d}",
         "tooltip-format": "<big>{:%Y :%B}</big>\n<tt><small>{calendar}</small></tt>"
     },
-    
-    "custom/brightness": {
-    "format": "{icon} {percent}%",
-    "format-alt": "{percent}%",
-    "on-click": "brightnessctl set +10%", 
-    "on-scroll-up": "brightnessctl set +5%", 
-    "on-scroll-down": "brightnessctl set 5%-", 
-    "tooltip": false, 
-    "format-icons": {
-        "low": "",    
-        "medium": "", 
-        "high": ""    
-    }
-},
-
-    
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": [
-            "",
-            "",
-            ""
-        ]
-    },
-    "battery": {
+       "battery": {
         "states": {
             "warning": 30,
             "critical": 15
