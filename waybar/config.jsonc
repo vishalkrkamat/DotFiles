@@ -27,9 +27,9 @@
         "format": "{icon} ",
         "on-click": "activate",
         "format-icons": {
-            "1": "\uf268",
-            "2": "\uf120",
-            "3": "\uf113",
+            "1": "",
+            "2": "",
+            "3": "",
         },
         "sort-by-number": true,
         "persistent-workspaces": {
@@ -42,24 +42,24 @@
         "format-alt": "{:%Y-%m-%d}",
         "tooltip-format": "<big>{:%Y :%B}</big>\n<tt><small>{calendar}</small></tt>"
     },
-       "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-full": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
+"battery": {
+    "states": {
+        "warning": 30,
+        "critical": 15
     },
+    "format": "{icon} {capacity}%",
+    "format-full": "{icon} {capacity}%",
+    "format-charging": "\ueea1 {capacity}%",
+    "format-plugged": "\uf1e6 {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+        "󰁺",
+        "󰁻",
+        "󰁽",
+        "󰁿",
+        "󰂁",
+    ]
+},
     "network": {
         "format-wifi": " {signalStrength}%",
         "format-ethernet": "{cidr} ",
@@ -79,7 +79,6 @@
             "headset": "",
             "phone": "",
             "portable": "",
-            "car": "",
             "default": [
                 "",
                 "",
