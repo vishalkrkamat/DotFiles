@@ -37,7 +37,7 @@ require("lazy").setup({
 	--
 	-- The dependencies are proper plugin specifications as well - anything
 	-- you do for a plugin at the top level, you can do for a dependency.
-	require("plugins.which_key"),
+	-- require("plugins.which_key"),
 	-- Use the `dependencies` key to specify the dependencies of a particular plugin
 	require("plugins.telescope"),
 	-- LSP Plugins
@@ -55,11 +55,12 @@ require("lazy").setup({
 	},
 	require("plugins.neo_tree"),
 	require("plugins.luarocks"),
-	require("plugins.image_nvim"),
+	--require("plugins.image_nvim"),
 	{ "Bilal2453/luvit-meta", lazy = true },
 	require("plugins.lsp"),
 	require("plugins.term"),
 	require("plugins.auto_format"),
+	require("plugins.highlight-color"),
 	require("plugins.nvim_cmp"),
 	require("plugins.theme_tokyonight"),
 	require("plugins.note_todo"),
