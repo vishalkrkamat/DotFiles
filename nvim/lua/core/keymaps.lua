@@ -56,7 +56,13 @@ vim.keymap.set("n", "zu", "ci{", { noremap = true, silent = true, desc = "Delete
 
 -- Delete inside [] and enter insert mode
 vim.keymap.set("n", "zo", "ci[", { noremap = true, silent = true, desc = "Delete inside [] and insert" })
---
+
+-- Delete inside double quotes and enter insert mode
+vim.keymap.set("n", "zj", 'ci"', { noremap = true, silent = true, desc = "Delete inside [] and insert" })
+
+-- Delete inside single quotes and enter insert mode
+vim.keymap.set("n", "zk", "ci'", { noremap = true, silent = true, desc = "Delete inside [] and insert" })
+
 -- TIP: Disable arrow keys in normal mode
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
 vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
