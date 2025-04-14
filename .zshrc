@@ -5,6 +5,8 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export GTK_THEME=Adwaita-dark
+export GTK_APPLICATION_PREFER_DARK_THEME=1
 # User configuration
 # Set preferred language
 export LANG=en_US.UTF-8
@@ -81,6 +83,9 @@ eval "$(atuin init zsh)"
 alias ll='ls -la'
 alias v='nvim'
 alias sv='sudo -E nvim'
+alias ud='paru -Syuu'
+alias rr='cargo run'
+alias re='cargo build'
 
 # FZF-based function for file selection
 f() {
@@ -130,3 +135,4 @@ tmd() {
   fi
 }
 
+. "/home/vishal/.deno/env"
