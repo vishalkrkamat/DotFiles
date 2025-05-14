@@ -62,7 +62,7 @@ dynamic_padding = true
 opacity = 0.85
 
 [window.padding]
-x = 10
-y = 10
+x = 0
+y = 0
 
 [keyboard]

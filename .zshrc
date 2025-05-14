@@ -1,3 +1,17 @@
+# Disable any early fallback prompt from Zsh
+unsetopt PROMPT_SP
+unsetopt PROMPT_CR
+PROMPT=''
+RPROMPT=''
+
+# # Remove extra newlines if they're still printed
+PS1=""
+export PS1
+#
+export EDITOR=nvim
+
+#Set vim key binding
+bindkey -v
 
 # Set preferred GTK theme (Optional)
 export GTK_THEME=Adwaita-dark
@@ -62,9 +76,8 @@ tmd() {
 # Path for Cargo binaries (add this if you haven't already)
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Initialize Starship prompt
-eval "$(starship init zsh)"
-
 # Initialize plugins (zoxide and atuin can be kept)
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
+
+eval "$(starship init zsh)"
