@@ -36,6 +36,7 @@ f() {
 # Tmux session management (Optional: Keep if useful)
 alias tmn="tmux new-session -s"
 alias tml="tmux ls"
+alias tmc="/home/vishal/.config/script/tmx.sh"
 
 # Function to kill tmux session
 tmk() {
