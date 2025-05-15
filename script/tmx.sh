@@ -28,5 +28,8 @@ tmux new-session -d -s "$SESSION_NAME" -n main -c "$WORKDIR"
 tmux new-window -t "$SESSION_NAME" -n dev -c "$WORKDIR"
 tmux new-window -t "$SESSION_NAME" -n logs -c "$WORKDIR"
 
+# Switch to the main window before attaching
+tmux select-window -t "$SESSION_NAME:main"
+
 # Attach to the session
 tmux attach -t "$SESSION_NAME"
