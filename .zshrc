@@ -1,84 +1,128 @@
-# Disable any early fallback prompt from Zsh
-unsetopt PROMPT_SP
-unsetopt PROMPT_CR
-PROMPT=''
+# ------------------------------
+# 🧠 Environment + General Setup
+# ------------------------------
+
+unsetopt PROMPT_SP PROMPT_CR     # Disable early Zsh fallback prompts
+PROMPT=''                         # Disable default prompt
 RPROMPT=''
-
-# # Remove extra newlines if they're still printed
 PS1=""
-export PS1
-#
+
 export EDITOR=nvim
-
-#Set vim key binding
-bindkey -v
-
-# Set preferred GTK theme (Optional)
 export GTK_THEME=Adwaita-dark
 export GTK_APPLICATION_PREFER_DARK_THEME=1
-
-# Set preferred language (Optional)
 export LANG=en_US.UTF-8
+export PATH="$HOME/.cargo/bin:$PATH"
+typeset -U PATH                  # Prevent $PATH duplicates
 
-# Aliases (Optional: Keep useful ones)
-alias ll='ls -la'
+# Set Vim keybindings in shell (optional)
+bindkey -e
+
+# Disable Ctrl-S freeze
+stty stop undef
+
+# ------------------------------
+# 🚀 Zsh Completion System
+# ------------------------------
+
+autoload -Uz compinit
+compinit -u   # Use -u to avoid insecure directory warning
+
+# Optional: Improve completion style
+zstyle ':completion:*' completer _complete
+zstyle ':completion:*' menu select
+zstyle ':completion:*' fzf-search-display true
+
+# ------------------------------
+# 🔌 Plugin Setup (manual clones)
+# ------------------------------
+
+# Autosuggestions (Fish-style history suggestions)
+if [[ ! -d ~/.zsh-plugins/zsh-autosuggestions ]]; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh-plugins/zsh-autosuggestions
+fi
+source ~/.zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Syntax Highlighting (colorful command feedback)
+if [[ ! -d ~/.zsh-plugins/zsh-syntax-highlighting ]]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh-plugins/zsh-syntax-highlighting
+fi
+source ~/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# fzf-tab (fuzzy <Tab> completion)
+if [[ ! -d ~/.zsh-plugins/fzf-tab ]]; then
+  git clone https://github.com/Aloxaf/fzf-tab ~/.zsh-plugins/fzf-tab
+fi
+source ~/.zsh-plugins/fzf-tab/fzf-tab.plugin.zsh
+
+bindkey '^J' autosuggest-accept
+
+# ------------------------------
+# ⚙️ Tools Setup
+# ------------------------------
+
+eval "$(zoxide init zsh)"       # Smarter cd
+eval "$(atuin init zsh)"        # Better history + search
+eval "$(starship init zsh)"     # Modern prompt
+
+# Improve Ctrl+R UI for fzf
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window=down:3:wrap"
+
+# ------------------------------
+# 📁 Aliases
+# ------------------------------
+
+alias ls='lsd --icon=always'
+alias la='lsd -la --icon=always --group-dirs=first'
+alias ll='lsd -l --icon=always --group-dirs=first'
+alias tree='lsd --tree --depth=3 --icon=always --group-dirs=first'
 alias v='nvim'
 alias sv='sudo -E nvim'
 alias ud='paru -Syuu'
 alias rr='cargo run'
 alias re='cargo build'
 
-# FZF-based function for file selection (Optional: Keep if useful)
+# ------------------------------
+# 🔧 Utility Functions
+# ------------------------------
+
+# Fuzzy select a file to open in nvim
 f() {
-  fzf --preview 'bat --style=numbers --color=always --line-range=:500 {} || tree -C {}' --bind 'enter:execute(nvim {})'
+  fzf --preview 'bat --style=numbers --color=always --line-range=:500 {} || tree -C {}' \
+      --bind 'enter:execute(nvim {})'
 }
 
-# Tmux session management (Optional: Keep if useful)
+# Tmux session management
 alias tmn="tmux new-session -s"
 alias tml="tmux ls"
 alias tmc="/home/vishal/.config/script/tmx.sh"
 
-# Function to kill tmux session
 tmk() {
   session=$(tmux ls | fzf --height 40% --reverse --prompt "Select tmux session to kill: ")
-
   if [[ -n $session ]]; then
     session_name=$(echo $session | awk '{print $1}')
-    tmux kill-session -t $session_name
+    tmux kill-session -t "$session_name"
     echo "Killed tmux session: $session_name"
   else
     echo "No session selected"
   fi
 }
 
-# Function to attach to a tmux session
 tma() {
   session=$(tmux ls | fzf --height 40% --reverse --prompt "Select tmux session to attach: ")
-
   if [[ -n $session ]]; then
     session_name=$(echo $session | awk '{print $1}')
-    tmux attach -t $session_name
+    tmux attach -t "$session_name"
     echo "Attached to tmux session: $session_name"
   else
     echo "No session selected"
   fi
 }
 
-# Function to detach from the current tmux session
 tmd() {
-  if [ -n "$TMUX" ]; then
+  if [[ -n "$TMUX" ]]; then
     tmux detach
-    echo "Detached from the current tmux session."
+    echo "Detached from current tmux session."
   else
-    echo "Not inside a tmux session. No action taken."
+    echo "Not inside a tmux session."
   fi
 }
-
-# Path for Cargo binaries (add this if you haven't already)
-export PATH="$HOME/.cargo/bin:$PATH"
-
-# Initialize plugins (zoxide and atuin can be kept)
-eval "$(zoxide init zsh)"
-eval "$(atuin init zsh)"
-
-eval "$(starship init zsh)"
