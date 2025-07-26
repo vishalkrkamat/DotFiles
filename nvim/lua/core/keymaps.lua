@@ -15,6 +15,11 @@ vim.keymap.set("n", "<Tab>q", ":q!<CR>", { desc = "Quit!" })
 --  Use CTRL+<hjkl> to switch between windows
 --
 
+-- Remap motion keys for Colemak-DH
+vim.keymap.set({ "n", "v" }, "m", "h", { noremap = true })
+vim.keymap.set({ "n", "v" }, "n", "j", { noremap = true })
+vim.keymap.set({ "n", "v" }, "e", "k", { noremap = true })
+
 vim.keymap.set("n", "<leader>g", ":w<CR>:term gcc % -o %< && ./%< <CR>", { silent = true })
 -- Map Ctrl + u in terminal mode
 --  See `:help wincmd` for a list of all window commands
