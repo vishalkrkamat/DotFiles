@@ -19,6 +19,7 @@ vim.keymap.set("n", "<Tab>q", ":q!<CR>", { desc = "Quit!" })
 vim.keymap.set({ "n", "v" }, "m", "h", { noremap = true })
 vim.keymap.set({ "n", "v" }, "n", "j", { noremap = true })
 vim.keymap.set({ "n", "v" }, "e", "k", { noremap = true })
+vim.keymap.set({ "n", "v" }, "k", "l", { noremap = true })
 
 vim.keymap.set("n", "<leader>g", ":w<CR>:term gcc % -o %< && ./%< <CR>", { silent = true })
 -- Map Ctrl + u in terminal mode
