@@ -77,7 +77,7 @@ alias ll='lsd -l --icon=always --group-dirs=first'
 alias tree='lsd --tree --depth=3 --icon=always --group-dirs=first'
 alias v='nvim'
 alias sv='sudo -E nvim'
-alias ud='paru -Syuu'
+alias ud='paru -Syu'
 alias rr='cargo run'
 alias re='cargo build'
 
@@ -126,3 +126,4 @@ tmd() {
     echo "Not inside a tmux session."
   fi
 }
+setopt ignore_eof
