@@ -18,9 +18,9 @@ return {
 				Hint = " ",
 			},
 			git = {
-				added = "",
-				modified = "",
-				removed = "",
+				added = " ",
+				modified = " ",
+				removed = " ",
 			},
 		}
 
