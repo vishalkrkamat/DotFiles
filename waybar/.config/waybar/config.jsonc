@@ -2,7 +2,7 @@
     "margin-top": 5,
     "margin-left": 10,
     "margin-right": 10,
-    "height": 30,
+    "height": 34,
     "modules-left": [
         "hyprland/window"
     ],
@@ -50,7 +50,7 @@
     "format": "{icon} {capacity}%",
     "format-full": "{icon} {capacity}%",
     "format-charging": "\ueea1 {capacity}%",
-    "format-plugged": "\uf1e6 {capacity}%",
+    "format-plugged": "\uf1e6  {capacity}%",
     "format-alt": "{time} {icon}",
     "format-icons": [
         "󰁺",

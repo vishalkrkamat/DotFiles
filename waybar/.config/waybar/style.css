@@ -93,8 +93,10 @@ background-color: rgba(0, 0, 0, 0);
 }
 
 .modules-right, .modules-left, .modules-center {
-    background-color: @base;
+    /* background-color: @base; */
+    background-color: #111827;
     border-radius: 7.5px;
+
 }
 
 .modules-right {
