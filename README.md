@@ -1,28 +1,31 @@
 # Personal Configuration Files Repository
 
-Welcome to my personal configuration files repository! This repository contains the configuration files for various applications that I use on a daily basis. Feel free to explore and adapt these configurations to suit your preferences.
+Welcome to my personal configuration files repository! This collection includes configuration files for the applications I use daily. Feel
+free to explore and adapt them to suit your workflow.
 
 ## Applications and Configurations
 
-### Window Manager: Hyprland
-- **Website:** [Hyprland](https://github.com/hyprwm/Hyprland)
+### Window Manager: [Hyprland](https://github.com/hyprwm/Hyprland)
 
-### Terminal Emulator: Kitty
-- **Website:** [Kitty](https://sw.kovidgoyal.net/kitty/)
+### Terminal Emulator: [Foot](https://codeberg.org/dnkl/foot)
 
-### Text Editor: Neovim
-- **Website:** [Neovim](https://neovim.io/)
+### Shell: [Zsh](https://www.zsh.org)
 
-### Bar: Waybar
-- **GitHub Repository:** [Waybar](https://github.com/Alexays/Waybar)
+- Enhanced with the [Starship Prompt](https://starship.rs) for a fast, minimal, and customizable experience
 
-### Application Launcher: Fuzzel
-- **GitHub Repository:** [Fuzzel](https://codeberg.org/dnkl/fuzzel)
+### Text Editor: [Neovim](https://neovim.io)
+
+### Status Bar: [Waybar](https://github.com/Alexays/Waybar)
+
+### Application Launcher: [Fuzzel](https://codeberg.org/dnkl/fuzzel)
+
+### Terminal Multiplexer: [Tmux](https://github.com/tmux/tmux)
 
 ## Usage
 
 To use these configurations:
 
-1. Clone this repository to your local machine.
-   ```bash
-   git clone https://github.com/your-username/repository-name.git
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/vishalkrkamat/DotFiles.git
+    ```
