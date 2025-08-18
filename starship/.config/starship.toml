@@ -40,6 +40,7 @@ truncate_to_repo = false
 [git_metrics]
 disabled = false
 added_style = 'bold blue'
+deleted_style = 'bold red'
 format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
 
 [git_branch]
@@ -49,17 +50,17 @@ format = '[on](white) [$symbol$branch ]($style)'
 
 [git_status]
 style = 'fg:green'
-conflicted = '🏳'
-ahead = '🏎💨'
-behind = '😰'
-diverged = '😵'
-up_to_date = '✓'
-untracked = '🤷'
-stashed = '📦'
-modified = '📝'
-staged = '[++\($count\)](green)'
-renamed = '👅'
-deleted = '🗑'
+conflicted = ' '
+ahead = ' '
+behind = ' '
+diverged = ' '
+up_to_date = ' '
+untracked = '📄 '
+stashed = ' '
+modified = ' '
+staged = '[($count)](teal) '
+renamed = ' '
+deleted = ' '
 format = '([$all_status$ahead_behind]($style) )'
 
 [fill]
@@ -68,7 +69,7 @@ symbol = ' '
 [python]
 style = 'teal'
 symbol = ' '
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+format = '[${symbol}${pyenv_prefix}(${version} )($virtualenv )]($style)'
 pyenv_version_name = true
 pyenv_prefix = ''
 
@@ -101,7 +102,7 @@ symbol = '󰏗 '
 [aws]
 symbol = ' '
 style = 'yellow'
-format = '[$symbol($profile )(\[$duration\] )]($style)'
+format = '[$symbol($profile )($duration )]($style)'
 
 [docker_context]
 symbol = ' '

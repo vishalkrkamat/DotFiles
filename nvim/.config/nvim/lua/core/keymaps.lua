@@ -22,7 +22,7 @@ vim.keymap.set({ "n", "v" }, "e", "k", { noremap = true })
 vim.keymap.set({ "n", "v" }, "k", "l", { noremap = true })
 vim.keymap.set({ "n" }, "l", "n", { noremap = true })
 
-vim.keymap.set("n", "<leader>g", ":w<CR>:term gcc % -o %< && ./%< <CR>", { silent = true })
+-- vim.keymap.set("n", "<leader>g", ":w<CR>:term gcc % -o %< && ./%< <CR>", { silent = true })
 -- Map Ctrl + u in terminal mode
 --  See `:help wincmd` for a list of all window commands
 -- vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })

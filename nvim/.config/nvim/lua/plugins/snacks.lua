@@ -24,6 +24,7 @@ return {
 			border = "rounded",
 		},
 		statuscolumn = { enabled = true },
+		terminal = { enabled = true },
 		words = { enabled = true },
 		picker = { enabled = true, hidden = true },
 		quickfile = { enabled = true },
