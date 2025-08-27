@@ -10,7 +10,7 @@ return {
 			highlight = "IndentBlanklineChar",
 			scope = {
 				enabled = true,
-				char = "┃",
+				char = "│",
 				highlight = "IndentBlanklineScope",
 			},
 		},
@@ -26,7 +26,7 @@ return {
 		statuscolumn = { enabled = true },
 		terminal = { enabled = true },
 		words = { enabled = true },
-		picker = { enabled = true, hidden = true },
+		picker = { enabled = true, hidden = true, ignored = true },
 		quickfile = { enabled = true },
 		explorer = { enabled = true },
 		scroll = {

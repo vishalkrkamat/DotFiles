@@ -1,81 +1,50 @@
--- [[ Basic Keymaps ]]
+-- ======================
+-- Neovim Keymaps Config
+-- ======================
 
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+-- [[ Basic ]]
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
--- Diagnostic keymaps
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+-- [[ Diagnostics ]]
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
 
---
+-- [[ Terminal ]]
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
+-- [[ Save & Quit ]]
 vim.keymap.set("n", "zz", ":w<CR>", { desc = "Save file" })
 vim.keymap.set("n", "<Tab><Tab>", ":wq<CR>", { desc = "Save and quit" })
-vim.keymap.set("n", "<Tab>q", ":q!<CR>", { desc = "Quit!" })
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
+vim.keymap.set("n", "<Tab>q", ":q!<CR>", { desc = "Quit without saving" })
 
--- Remap motion keys for Colemak-DH
+-- [[ Buffer Management ]]
+vim.keymap.set("n", "<leader>p", "<C-^>", { desc = "Switch to previous buffer" })
+
+-- [[ Fuzzy Finder (Snacks) ]]
+vim.keymap.set("n", "<leader>l", function()
+	Snacks.picker.buffers({
+		sort_lastused = true,
+		show_unlisted = false,
+		layout = "dropdown", -- or "vertical", "horizontal"
+		preview = true,
+	})
+end, { desc = "Fuzzy find buffers (Snacks)" })
+
+-- [[ Colemak-DH Motion Remaps ]]
 vim.keymap.set({ "n", "v" }, "m", "h", { noremap = true })
 vim.keymap.set({ "n", "v" }, "n", "j", { noremap = true })
 vim.keymap.set({ "n", "v" }, "e", "k", { noremap = true })
 vim.keymap.set({ "n", "v" }, "k", "l", { noremap = true })
-vim.keymap.set({ "n" }, "l", "n", { noremap = true })
+vim.keymap.set("n", "l", "n", { noremap = true })
 
--- vim.keymap.set("n", "<leader>g", ":w<CR>:term gcc % -o %< && ./%< <CR>", { silent = true })
--- Map Ctrl + u in terminal mode
---  See `:help wincmd` for a list of all window commands
--- vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
--- vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
--- vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
--- vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
---
--- local split_winid = nil
---
--- local function toggle_hsplit()
--- 	if split_winid and vim.api.nvim_win_is_valid(split_winid) then
--- 		vim.api.nvim_win_close(split_winid, true)
--- 		split_winid = nil
--- 	else
--- 		vim.cmd("split")
--- 		split_winid = vim.api.nvim_get_current_win()
--- 	end
--- end
---
--- local function toggle_vsplit()
--- 	if split_winid and vim.api.nvim_win_is_valid(split_winid) then
--- 		vim.api.nvim_win_close(split_winid, true)
--- 		split_winid = nil
--- 	else
--- 		vim.cmd("vsplit")
--- 		split_winid = vim.api.nvim_get_current_win()
--- 	end
--- end
---
--- vim.keymap.set("n", "sh", toggle_hsplit, { noremap = true, silent = true })
--- vim.keymap.set("n", "sv", toggle_vsplit, { noremap = true, silent = true })
---
--- Delete inside () and enter insert mode
-vim.keymap.set("n", "zu", "ci(", { noremap = true, silent = true, desc = "Delete inside () and insert" })
+-- [[ Insert Mode Symbols (Alt mappings) ]]
+vim.keymap.set("i", "<M-e>", "=", { noremap = true, silent = true })
+vim.keymap.set("i", "<M-u>", "+", { noremap = true, silent = true })
+vim.keymap.set("i", "<M-l>", "-", { noremap = true, silent = true })
 
--- Delete inside {} and enter insert mode
-vim.keymap.set("n", "zi", "ci{", { noremap = true, silent = true, desc = "Delete inside {} and insert" })
-
--- Delete inside [] and enter insert mode
-vim.keymap.set("n", "zo", "ci[", { noremap = true, silent = true, desc = "Delete inside [] and insert" })
-
--- Delete inside double quotes and enter insert mode
-vim.keymap.set("n", "zj", 'ci"', { noremap = true, silent = true, desc = "Delete inside double quotes and insert" })
-
--- Delete inside single quotes and enter insert mode
-vim.keymap.set("n", "zk", "ci'", { noremap = true, silent = true, desc = "Delete inside single quotes and insert" })
-
--- Change word
-vim.keymap.set("n", "zl", "ciw", { noremap = true, silent = true, desc = "Delete words and insert" })
-
---
--- TIP: Disable arrow keys in normal mode
-vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
+-- [[ Text Objects Editing ]]
+vim.keymap.set("n", "tl", "ci(", { noremap = true, silent = true, desc = "Change inside ()" })
+vim.keymap.set("n", "tu", "ci{", { noremap = true, silent = true, desc = "Change inside {}" })
+vim.keymap.set("n", "ty", "ci[", { noremap = true, silent = true, desc = "Change inside []" })
+vim.keymap.set("n", "ti", 'ci"', { noremap = true, silent = true, desc = "Change inside double quotes" })
+vim.keymap.set("n", "to", "ci'", { noremap = true, silent = true, desc = "Change inside single quotes" })
+vim.keymap.set("n", "tw", "ciw", { noremap = true, silent = true, desc = "Change current word" })
