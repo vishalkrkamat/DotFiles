@@ -95,6 +95,15 @@ return {
 				},
 			},
 			pyright = {},
+			rust_analyzer = {
+				cmd = { "rust-analyzer" }, -- <- will use the rustup-provided one
+				settings = {
+					["rust-analyzer"] = {
+						cargo = { allFeatures = true },
+						checkOnSave = { command = "clippy" },
+					},
+				},
+			},
 		}
 
 		-- Setup each LSP server with capabilities and on_attach
