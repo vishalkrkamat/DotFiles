@@ -9,6 +9,8 @@ return {
 		-- Define your formatters
 		formatters_by_ft = {
 			lua = { "stylua" },
+			c = { "clang_format" },
+			cpp = { "clang_format" },
 			python = { "isort", "black" },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			html = { "prettierd", "prettier", stop_after_first = true },
