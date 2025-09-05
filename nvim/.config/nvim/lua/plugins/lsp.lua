@@ -26,7 +26,7 @@ return {
 
 		-- Setup mason-lspconfig to automatically install LSP servers
 		require("mason-lspconfig").setup({
-			ensure_installed = { "lua_ls", "pyright" },
+			ensure_installed = { "lua_ls", "pyright", "clangd" },
 			automatic_installation = true,
 		})
 
@@ -102,6 +102,18 @@ return {
 						cargo = { allFeatures = true },
 						checkOnSave = { command = "clippy" },
 					},
+				},
+			},
+			clangd = {
+				cmd = {
+					"clangd",
+					"--background-index",
+					"--clang-tidy",
+					"--completion-style=detailed",
+					"--header-insertion=never",
+				},
+				init_options = {
+					clangdFileStatus = true,
 				},
 			},
 		}
