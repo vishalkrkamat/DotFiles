@@ -40,6 +40,7 @@ vim.keymap.set("n", "l", "n", { noremap = true })
 vim.keymap.set("i", "<M-e>", "=", { noremap = true, silent = true })
 vim.keymap.set("i", "<M-u>", "+", { noremap = true, silent = true })
 vim.keymap.set("i", "<M-l>", "-", { noremap = true, silent = true })
+vim.keymap.set("i", "<M-o>", "_", { noremap = true, silent = true })
 
 -- [[ Text Objects Editing ]]
 vim.keymap.set("n", "tl", "ci(", { noremap = true, silent = true, desc = "Change inside ()" })
