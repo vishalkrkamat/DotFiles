@@ -52,7 +52,7 @@ return {
 					local buffer = args.buf
 					if
 						client
-						and client.supports_method("textDocument/inlayHint")
+						and client:supports_method("textDocument/inlayHint")
 						and vim.api.nvim_buf_is_valid(buffer)
 						and vim.bo[buffer].buftype == ""
 						and not vim.tbl_contains(opts.inlay_hints.exclude, vim.bo[buffer].filetype)
