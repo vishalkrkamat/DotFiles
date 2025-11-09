@@ -9,7 +9,7 @@ return {
 	opts = {
 		inlay_hints = {
 			enabled = true,
-			exclude = { "vue" }, -- Filetypes for which inlay hints are disabled
+			exclude = { "vue", "c" }, -- Filetypes for which inlay hints are disabled
 		},
 		codelens = {
 			enabled = true,
@@ -90,7 +90,7 @@ return {
 						workspace = { checkThirdParty = false },
 						diagnostics = { globals = { "vim" } },
 						hint = { enable = true },
-						codeLens = { enable = true }, -- Enable CodeLens for lua_ls
+						codeLens = { enable = false }, -- Enable CodeLens for lua_ls
 					},
 				},
 			},
@@ -100,7 +100,7 @@ return {
 				settings = {
 					["rust-analyzer"] = {
 						cargo = { allFeatures = true },
-						checkOnSave = { command = "clippy" },
+						check = { command = "clippy" },
 					},
 				},
 			},
@@ -119,11 +119,13 @@ return {
 		}
 
 		-- Setup each LSP server with capabilities and on_attach
-		local lspconfig = require("lspconfig")
+		-- local lspconfig = require("lspconfig")
 		for server, config in pairs(servers) do
 			config.capabilities = capabilities
 			config.on_attach = on_attach
-			lspconfig[server].setup(config)
+			--lspconfig[server].setup(config)
+			vim.lsp.config(server, config)
+			vim.lsp.enable(server)
 		end
 
 		-- Configure diagnostics UI

@@ -17,7 +17,7 @@ vim.keymap.set("n", "<Tab><Tab>", ":wq<CR>", { desc = "Save and quit" })
 vim.keymap.set("n", "<Tab>q", ":q!<CR>", { desc = "Quit without saving" })
 
 -- [[ Buffer Management ]]
-vim.keymap.set("n", "<leader>p", "<C-^>", { desc = "Switch to previous buffer" })
+vim.keymap.set("n", "<leader>gn", "<C-^>", { desc = "Switch to previous buffer" })
 
 -- [[ Fuzzy Finder (Snacks) ]]
 vim.keymap.set("n", "<leader>l", function()

@@ -1,5 +1,4 @@
 -- ~/.config/nvim/lua/plugin_keymaps.lua
-local utils = require("utils")
 local map = vim.keymap.set
 local opts = { silent = true, noremap = true }
 
