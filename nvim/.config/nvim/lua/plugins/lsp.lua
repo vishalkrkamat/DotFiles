@@ -69,7 +69,7 @@ return {
 				callback = function(args)
 					local client = vim.lsp.get_client_by_id(args.data.client_id)
 					local buffer = args.buf
-					if client and client.supports_method("textDocument/codeLens") then
+					if client and client:supports_method("textDocument/codeLens") then
 						vim.lsp.codelens.refresh({ bufnr = buffer })
 						vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
 							buffer = buffer,

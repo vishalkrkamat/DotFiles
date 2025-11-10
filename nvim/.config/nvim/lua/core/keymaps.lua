@@ -19,16 +19,6 @@ vim.keymap.set("n", "<Tab>q", ":q!<CR>", { desc = "Quit without saving" })
 -- [[ Buffer Management ]]
 vim.keymap.set("n", "<leader>gn", "<C-^>", { desc = "Switch to previous buffer" })
 
--- [[ Fuzzy Finder (Snacks) ]]
-vim.keymap.set("n", "<leader>l", function()
-	Snacks.picker.buffers({
-		sort_lastused = true,
-		show_unlisted = false,
-		layout = "dropdown", -- or "vertical", "horizontal"
-		preview = true,
-	})
-end, { desc = "Fuzzy find buffers (Snacks)" })
-
 -- [[ Colemak-DH Motion Remaps ]]
 vim.keymap.set({ "n", "v" }, "m", "h", { noremap = true })
 vim.keymap.set({ "n", "v" }, "n", "j", { noremap = true })

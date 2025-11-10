@@ -4,6 +4,16 @@ local opts = { silent = true, noremap = true }
 
 local Snacks = require("snacks")
 
+-- [[ Fuzzy Finder (Snacks) ]]
+vim.keymap.set("n", "<leader>l", function()
+	Snacks.picker.buffers({
+		sort_lastused = true,
+		show_unlisted = false,
+		layout = "dropdown", -- or "vertical", "horizontal"
+		preview = true,
+	})
+end, { desc = "Fuzzy find buffers (Snacks)" })
+
 -- 🔍 Core Find/Grep/Search
 map("n", "<leader><space>", function()
 	Snacks.picker.smart()
@@ -64,16 +74,34 @@ end, { desc = "Go to Definition" })
 map("n", "gr", function()
 	Snacks.picker.lsp_references()
 end, { desc = "References" })
-map("n", "gI", function()
+map("n", "<leader>gi", function()
 	Snacks.picker.lsp_implementations()
-end, { desc = "Implementations" })
-map("n", "<leader>sd", function()
-	Snacks.picker.diagnostics()
-end, { desc = "Workspace Diagnostics" })
-map("n", "<leader>sD", function()
-	Snacks.picker.diagnostics_buffer()
-end, { desc = "Buffer Diagnostics" })
+end, { desc = "Find Implementations" })
+map("n", "<leader>gs", function()
+	Snacks.picker.lsp_symbols()
+end, { desc = "LSP Document Symbols" })
 
+-- map("n", "<leader>sd", function()
+-- 	Snacks.picker.diagnostics()
+-- end, { desc = "Workspace Diagnostics" })
+--
+-- map("n", "<leader>sD", function()
+-- 	Snacks.picker.diagnostics_buffer()
+-- end, { desc = "Buffer Diagnostics" })
+--
+-- map("n", "<leader>gS", function()
+-- 	Snacks.picker.lsp_workspace_symbols()
+-- end, { desc = "LSP Workspace Symbols" })
+--
+-- map("n", "<leader>gt", function()
+-- 	Snacks.picker.lsp_type_definitions()
+-- end, { desc = "Go to Type Definition" })
+--
+-- map("n", "<leader>ga", function()
+-- 	Snacks.picker.lsp_code_actions()
+-- end, { desc = "Code Actions (Picker)" })
+
+--
 -- 📂 File Explorer
 map("n", "<leader>e", function()
 	Snacks.explorer()
@@ -119,6 +147,6 @@ map({ "i", "n", "s" }, "<C-b>", function()
 end, vim.tbl_extend("force", opts, { expr = true, desc = "Scroll Backward" }))
 
 -- Conform plugin keymaps
-vim.keymap.set("", "<leader>f", function()
+vim.keymap.set("n", "<leader>cf", function()
 	require("conform").format({ async = true })
 end, { desc = "Format buffer" })
