@@ -134,13 +134,13 @@ map("n", "<leader>snt", function()
 	require("noice").cmd("pick")
 end, { desc = "Noice Picker (Telescope/FzfLua)" })
 
-map({ "i", "n", "s" }, "<C-f>", function()
+map({ "i", "n", "s" }, "<C-n>", function()
 	if not require("noice.lsp").scroll(4) then
 		return "<C-f>"
 	end
 end, vim.tbl_extend("force", opts, { expr = true, desc = "Scroll Forward" }))
 
-map({ "i", "n", "s" }, "<C-b>", function()
+map({ "i", "n", "s" }, "<C-e>", function()
 	if not require("noice.lsp").scroll(-4) then
 		return "<C-b>"
 	end
