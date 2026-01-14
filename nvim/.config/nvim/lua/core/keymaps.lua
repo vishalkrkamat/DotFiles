@@ -17,7 +17,47 @@ vim.keymap.set("n", "<Tab><Tab>", ":wq<CR>", { desc = "Save and quit" })
 vim.keymap.set("n", "<Tab>q", ":q!<CR>", { desc = "Quit without saving" })
 
 -- [[ Buffer Management ]]
-vim.keymap.set("n", "<leader>gn", "<C-^>", { desc = "Switch to previous buffer" })
+vim.keymap.set("n", "<leader>n", "<C-^>", { desc = "Switch to previous buffer" })
+
+local function safe_buf_delete(bufnr)
+	bufnr = bufnr or vim.api.nvim_get_current_buf()
+
+	-- If buffer is modified, refuse (do NOT force)
+	if vim.bo[bufnr].modified then
+		vim.notify("Buffer has unsaved changes", vim.log.levels.WARN)
+		return
+	end
+
+	-- Find a valid buffer to switch to
+	local function get_alt_buf()
+		for _, b in ipairs(vim.api.nvim_list_bufs()) do
+			if b ~= bufnr and vim.api.nvim_buf_is_loaded(b) and vim.bo[b].buflisted then
+				return b
+			end
+		end
+		return nil
+	end
+
+	local alt = get_alt_buf()
+
+	-- Replace buffer in all windows
+	for _, win in ipairs(vim.fn.win_findbuf(bufnr)) do
+		if alt then
+			vim.api.nvim_win_set_buf(win, alt)
+		else
+			-- No other buffer exists → create empty buffer
+			vim.cmd("enew")
+			vim.api.nvim_win_set_buf(win, vim.api.nvim_get_current_buf())
+		end
+	end
+
+	-- Finally delete the buffer
+	vim.api.nvim_buf_delete(bufnr, { force = false })
+end
+
+vim.keymap.set("n", "<leader>bd", safe_buf_delete, {
+	desc = "Safely delete buffer",
+})
 
 -- [[ Colemak-DH Motion Remaps ]]
 vim.keymap.set({ "n", "v" }, "m", "h", { noremap = true })
