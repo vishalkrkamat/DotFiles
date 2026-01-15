@@ -1,3 +1,2 @@
-
 #!/bin/bash
-brightnessctl set 50
+brightnessctl set 60%
