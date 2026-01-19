@@ -84,6 +84,8 @@ map("n", "<leader>grn", function()
 	vim.lsp.buf.rename()
 end, { desc = "Rename Symbol" })
 
+vim.keymap.set("n", "gb", "<C-o>", { desc = "Go back (jumplist)" })
+
 -- map("n", "<leader>sd", function()
 -- 	Snacks.picker.diagnostics()
 -- end, { desc = "Workspace Diagnostics" })
