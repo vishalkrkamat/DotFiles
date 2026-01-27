@@ -61,7 +61,11 @@ bindkey '^F' autosuggest-accept
 # ------------------------------
 
 eval "$(zoxide init zsh)"       # Smarter cd
-eval "$(atuin init zsh)"        # Better history + search
+
+export ATUIN_NOBIND=true
+eval "$(atuin init zsh)"       #Better history + search
+bindkey '^R' atuin-search
+
 eval "$(starship init zsh)"     # Modern prompt
 
 # Improve Ctrl+R UI for fzf
