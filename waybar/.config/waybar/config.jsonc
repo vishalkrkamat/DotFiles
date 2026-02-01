@@ -2,7 +2,7 @@
     "margin-top": 0,
     "margin-left": 0,
     "margin-right": 0,
-    "height": 34,
+    "height": 37,
     "modules-left": [
         "hyprland/window"
     ],
@@ -40,7 +40,7 @@
         }
     },
     "clock": {
-        "format": "{:%I:%M %p}",
+        "format": "{:%I:%M%p}",
         "format-alt": "{:%Y-%m-%d}",
         "tooltip-format": "<big>{:%Y :%B}</big>\n<tt><small>{calendar}</small></tt>"
     },
@@ -52,9 +52,9 @@
         "warning": 30,
         "critical": 15
     },
-    "format": "{icon} {capacity}%",
+    "format": "{icon}{capacity}%",
     "format-full": "{icon}{capacity}%",
-    "format-charging": "󰂄 {capacity}%",
+    "format-charging": "󰂄{capacity}%",
     "format-plugged": "󱘖 {capacity}%",
     "format-alt": "{time} {icon}",
     "format-icons": [
