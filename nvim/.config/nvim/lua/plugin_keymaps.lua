@@ -5,7 +5,7 @@ local opts = { silent = true, noremap = true }
 local Snacks = require("snacks")
 
 -- [[ Fuzzy Finder (Snacks) ]]
-vim.keymap.set("n", "<leader>l", function()
+map("n", "<leader>l", function()
 	Snacks.picker.buffers({
 		sort_lastused = true,
 		show_unlisted = false,
@@ -84,7 +84,8 @@ map("n", "<leader>grn", function()
 	vim.lsp.buf.rename()
 end, { desc = "Rename Symbol" })
 
-vim.keymap.set("n", "gb", "<C-o>", { desc = "Go back (jumplist)" })
+map("n", "<leader>o", "<C-o>", { desc = "Jump back" })
+map("n", "<leader>i", "<C-i>", { desc = "Jump forward" })
 
 -- map("n", "<leader>sd", function()
 -- 	Snacks.picker.diagnostics()
@@ -108,7 +109,7 @@ vim.keymap.set("n", "gb", "<C-o>", { desc = "Go back (jumplist)" })
 
 --
 -- 📂 File Explorer
-map("n", "<leader>e", function()
+map("n", "<leader>k", function()
 	Snacks.explorer()
 end, { desc = "File Explorer" })
 
@@ -152,6 +153,6 @@ map({ "i", "n", "s" }, "<C-e>", function()
 end, vim.tbl_extend("force", opts, { expr = true, desc = "Scroll Backward" }))
 
 -- Conform plugin keymaps
-vim.keymap.set("n", "<leader>cf", function()
+map("n", "<leader>cf", function()
 	require("conform").format({ async = true })
 end, { desc = "Format buffer" })
