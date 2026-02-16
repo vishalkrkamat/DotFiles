@@ -7,3 +7,10 @@ margin=18
 border-radius=10
 max-icon-size=52
 default-timeout=5000
+
+[urgency=critical]
+background-color=#ff0000
+text-color=#ffffff
+border-color=#ff0000
+border-size=2
+default-timeout=8000

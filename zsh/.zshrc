@@ -64,7 +64,7 @@ eval "$(zoxide init zsh)"       # Smarter cd
 
 export ATUIN_NOBIND=true
 eval "$(atuin init zsh)"       #Better history + search
-bindkey '^R' atuin-search
+bindkey '^S' atuin-search
 
 eval "$(starship init zsh)"     # Modern prompt
 

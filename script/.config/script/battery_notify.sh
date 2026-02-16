@@ -1,19 +1,25 @@
 #!/bin/bash
 
-# Run acpi command and store the output
-acpi_output=$(acpi)
+BAT_PATH=$(ls -d /sys/class/power_supply/BAT* 2>/dev/null | head -n1)
 
-# Extract battery percentage using grep and awk, then remove the percentage sign
-battery_percentage=$(echo "$acpi_output" | grep -o "[0-9]\{1,3\}%" | awk '{print $1}' | tr -d '%')
+[ -z "$BAT_PATH" ] && exit 0
 
-# Check if battery percentage is 50% or lower
+battery_percentage=$(cat "$BAT_PATH/capacity")
+battery_status=$(cat "$BAT_PATH/status")
+
+play_sound() {
+    SOUND="/usr/share/sounds/freedesktop/stereo/dialog-warning.oga"
+
+    command -v paplay >/dev/null && paplay "$SOUND" && return
+    command -v aplay  >/dev/null && aplay  "$SOUND"
+}
+
 if [ "$battery_percentage" -le 50 ]; then
-    # Check if the laptop is charging
-    if [[ "$acpi_output" =~ "Charging" ]]; then
+    if [ "$battery_status" = "Charging" ] || [ "$battery_status" = "Full" ]; then
         echo "Battery is charging. No need to notify."
     else
-        # Display notification using notify-send
-        notify-send "Battery Low" "Battery Percentage: $battery_percentage%"
+        notify-send -u critical "Battery Low" "Battery Percentage: $battery_percentage%"
+        play_sound
     fi
 else
     echo "Battery Percentage: $battery_percentage%"
