@@ -3,7 +3,7 @@ Description=Run battery notifier every 2 minutes
 
 [Timer]
 OnBootSec=1min
-OnUnitActiveSec=2min
+OnUnitActiveSec=5min
 AccuracySec=30s
 
 [Install]

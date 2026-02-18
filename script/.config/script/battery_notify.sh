@@ -14,13 +14,20 @@ play_sound() {
     command -v aplay  >/dev/null && aplay  "$SOUND"
 }
 
-if [ "$battery_percentage" -le 50 ]; then
+if [ "$battery_percentage" -le 35 ]; then
     if [ "$battery_status" = "Charging" ] || [ "$battery_status" = "Full" ]; then
         echo "Battery is charging. No need to notify."
     else
         notify-send -u critical "Battery Low" "Battery Percentage: $battery_percentage%"
         play_sound
     fi
+
+elif [ "$battery_percentage" -ge 85 ]; then
+    if [ "$battery_status" = "Charging" ]; then
+        notify-send "Battery High" "Battery Percentage: $battery_percentage% Unplug Charger"
+        play_sound
+    fi
+
 else
     echo "Battery Percentage: $battery_percentage%"
 fi
