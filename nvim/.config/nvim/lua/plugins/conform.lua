@@ -9,21 +9,31 @@ return {
 		-- Define your formatters
 		formatters_by_ft = {
 			lua = { "stylua" },
-			c = { "clang_format" },
-			cpp = { "clang_format" },
+			c = { "clang-format" },
+			cpp = { "clang-format" },
 			python = { "isort", "black" },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			html = { "prettierd", "prettier", stop_after_first = true },
 			css = { "prettierd", "prettier", stop_after_first = true },
 			markdown = { "prettierd", "prettier", stop_after_first = true },
 			htmldjango = { "djlint" },
+
+			javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+			typescript = { "prettierd", "prettier", stop_after_first = true },
+			typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+
+			scss = { "prettierd", "prettier", stop_after_first = true },
+
+			json = { "prettierd", "prettier", stop_after_first = true },
+			jsonc = { "prettierd", "prettier", stop_after_first = true },
+			yaml = { "prettierd", "prettier", stop_after_first = true },
 		},
 		-- Set default options
 		default_format_opts = {
 			lsp_format = "fallback",
 		},
 		-- Set up format-on-save
-		format_on_save = { timeout_ms = 500 },
+		format_on_save = { timeout_ms = 1500 },
 		-- Customize formatters
 		formatters = {
 			shfmt = {

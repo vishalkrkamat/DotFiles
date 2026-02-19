@@ -26,24 +26,24 @@ return {
 
 		-- Setup mason-lspconfig to automatically install LSP servers
 		require("mason-lspconfig").setup({
-			ensure_installed = { "lua_ls", "pyright", "clangd" },
+			ensure_installed = {
+				"lua_ls",
+				"pyright",
+				"clangd",
+
+				-- web
+				"html",
+				"cssls",
+				"ts_ls",
+				"eslint",
+				"jsonls",
+				"emmet_language_server",
+			},
 			automatic_installation = true,
 		})
 
 		-- Get LSP capabilities from blink.cmp
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
-
-		-- Define on_attach function for LSP keybindings and functionality
-		local on_attach = function(client, bufnr)
-			local map = function(mode, lhs, rhs, desc)
-				vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
-			end
-
-			-- map("n", "gd", vim.lsp.buf.definition, "Goto Definition")
-			-- map("n", "K", vim.lsp.buf.hover, "Hover")
-			-- map("n", "<leader>rn", vim.lsp.buf.rename, "Rename")
-			-- map("n", "<leader>ca", vim.lsp.buf.code_action, "Code Action")
-		end
 
 		if vim.fn.has("nvim-0.10") == 1 and opts.inlay_hints.enabled then
 			vim.api.nvim_create_autocmd("LspAttach", {
@@ -116,14 +116,40 @@ return {
 					clangdFileStatus = true,
 				},
 			},
+
+			-- web
+			html = {},
+			cssls = {},
+			ts_ls = {},
+			eslint = {},
+			jsonls = {},
+			tailwindcss = {},
+
+			emmet_language_server = {
+				filetypes = {
+					"css",
+					"html",
+					"javascriptreact",
+					"typescriptreact",
+					"less",
+					"sass",
+					"scss",
+				},
+				init_options = {
+					preferences = {},
+					showAbbreviationSuggestions = true,
+					showExpandedAbbreviation = "always",
+					showSuggestionsAsSnippets = false,
+					syntaxProfiles = {},
+					variables = {},
+				},
+			},
 		}
 
 		-- Setup each LSP server with capabilities and on_attach
 		-- local lspconfig = require("lspconfig")
 		for server, config in pairs(servers) do
 			config.capabilities = capabilities
-			config.on_attach = on_attach
-			--lspconfig[server].setup(config)
 			vim.lsp.config(server, config)
 			vim.lsp.enable(server)
 		end
