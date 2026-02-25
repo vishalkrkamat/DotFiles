@@ -13,7 +13,7 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 
 -- [[ Save & Quit ]]
 vim.keymap.set("n", "zz", "<cmd>w<CR>", { desc = "Save file" })
-vim.keymap.set("n", "<TAB>q", "<cmd>q!<CR>", { desc = "Quit without saving" })
+vim.keymap.set("n", "<leader>q", "<cmd>q!<CR>", { desc = "Quit without saving" })
 
 -- [[ Buffer Management ]]
 vim.keymap.set("n", "<leader>n", "<C-^>", { desc = "Switch to previous buffer" })

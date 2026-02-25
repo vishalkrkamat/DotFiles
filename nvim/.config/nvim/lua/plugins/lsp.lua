@@ -45,7 +45,7 @@ return {
 		-- Get LSP capabilities from blink.cmp
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-		if vim.fn.has("nvim-0.10") == 1 and opts.inlay_hints.enabled then
+		if opts.inlay_hints.enabled then
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
 					local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -64,7 +64,7 @@ return {
 		end
 
 		-- Enable CodeLens
-		if vim.fn.has("nvim-0.10") == 1 and opts.codelens.enabled and vim.lsp.codelens then
+		if opts.codelens.enabled and vim.lsp.codelens then
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
 					local client = vim.lsp.get_client_by_id(args.data.client_id)
