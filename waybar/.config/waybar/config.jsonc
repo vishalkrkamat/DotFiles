@@ -31,7 +31,7 @@
             "1": "",
             "2": "",
             "3": "",
-            "8": "",
+            "8": ""
         },
         "sort-by-number": true,
         "persistent-workspaces": {
@@ -44,29 +44,27 @@
         "format-alt": "{:%Y-%m-%d}",
         "tooltip-format": "<big>{:%Y :%B}</big>\n<tt><small>{calendar}</small></tt>"
     },
-
-"battery": {
-    "interval": 2,
-    "states": {
-        "good": 95,
-        "warning": 30,
-        "critical": 15
+    "battery": {
+        "interval": 2,
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}{capacity}%",
+        "format-full": "{icon}{capacity}%",
+        "format-charging": "󰂄{capacity}%",
+        "format-plugged": "󱘖 {capacity}%",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            "󰁺", // 0–20%
+            "󰁻", // 20–40%
+            "󰁽", // 40–60%
+            "󰁿", // 60–80%
+            "󰂁" // 80–100%
+        ]
     },
-    "format": "{icon}{capacity}%",
-    "format-full": "{icon}{capacity}%",
-    "format-charging": "󰂄{capacity}%",
-    "format-plugged": "󱘖 {capacity}%",
-    "format-alt": "{time} {icon}",
-    "format-icons": [
-        "󰁺",   // 0–20%
-        "󰁻",   // 20–40%
-        "󰁽",   // 40–60%
-        "󰁿",   // 60–80%
-        "󰂁"    // 80–100%
-    ]
-},
-
-"custom/storage": {
+    "custom/storage": {
         "format": " {}",
         "format-alt": "{percentage}% ",
         "format-alt-click": "click-right",
@@ -74,7 +72,6 @@
         "interval": 60,
         "exec": "~/.config/waybar/modules/storage.sh"
     },
-
     "network": {
         "format-wifi": " {signalStrength}%",
         "format-ethernet": "{cidr} ",
