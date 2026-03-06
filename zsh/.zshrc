@@ -15,7 +15,11 @@ export PATH="$HOME/.cargo/bin:$PATH"
 typeset -U PATH                  # Prevent $PATH duplicates
 
 # Set Vim keybindings in shell (optional)
-bindkey -e
+bindkey -v
+
+# backspace in all zle keymaps (vi insert + normal + emacs)
+bindkey -a '^?' backward-delete-char   # vicmd
+bindkey -M viins '^?' backward-delete-char
 
 # Disable Ctrl-S freeze
 stty stop undef
