@@ -18,5 +18,5 @@ fi
 
 echo "Starting Waybar..."
 # Start Waybar with the specified configuration and style
-waybar -c $WAYBAR_CONFIG -s $WAYBAR_STYLE &
+nohup waybar -c "$WAYBAR_CONFIG" -s "$WAYBAR_STYLE" >/dev/null 2>&1 </dev/null &
 echo "Waybar started."

@@ -6,11 +6,16 @@ local file_manager = "thunar"
 local menu = "fuzzel"
 
 hl.monitor({
-	output = "eDP-1",
+	output = "",
 	mode = "1920x1080@144",
-	position = "0x0",
+	position = "auto",
 	scale = 1,
 })
+
+-- Keep the three standard workspaces visible and persistent on any display.
+for workspace = 1, 3 do
+	hl.workspace_rule({ workspace = tostring(workspace), persistent = true })
+end
 
 require("hyprconf/env")
 require("hyprconf/animation")
