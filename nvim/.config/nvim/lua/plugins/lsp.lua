@@ -39,7 +39,8 @@ return {
 				"jsonls",
 				"emmet_language_server",
 			},
-			automatic_installation = true,
+			-- Mason-lspconfig v2 removed automatic_installation; ensure_installed
+			-- handles installation and its default automatic_enable handles activation.
 		})
 
 		-- Get LSP capabilities from blink.cmp
