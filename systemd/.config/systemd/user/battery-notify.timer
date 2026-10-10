@@ -1,5 +1,5 @@
 [Unit]
-Description=Run battery notifier every 2 minutes
+Description=Run battery notifier every 5 minutes
 
 [Timer]
 OnBootSec=1min

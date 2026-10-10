@@ -29,7 +29,7 @@ stty stop undef
 # ------------------------------
 
 autoload -Uz compinit
-compinit -u   # Use -u to avoid insecure directory warning
+compinit
 
 # fzf-tab configuration
 zstyle ':fzf-tab:*' switch-group ',' '.'
@@ -37,26 +37,20 @@ zstyle ':fzf-tab:*' fzf-bindings 'tab:accept'
 zstyle ':fzf-tab:*' preview 'bat --color=always --style=numbers {}'
 
 # ------------------------------
-# 🔌 Plugin Setup (manual clones)
+# 🔌 Plugin Setup
 # ------------------------------
 
 # Autosuggestions (Fish-style history suggestions)
-if [[ ! -d ~/.zsh-plugins/zsh-autosuggestions ]]; then
-  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh-plugins/zsh-autosuggestions
-fi
-source ~/.zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -r ~/.zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
+  source ~/.zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # fzf-tab (fuzzy <Tab> completion)
-if [[ ! -d ~/.zsh-plugins/fzf-tab ]]; then
-  git clone https://github.com/Aloxaf/fzf-tab ~/.zsh-plugins/fzf-tab
-fi
-source ~/.zsh-plugins/fzf-tab/fzf-tab.plugin.zsh
+[[ -r ~/.zsh-plugins/fzf-tab/fzf-tab.plugin.zsh ]] && \
+  source ~/.zsh-plugins/fzf-tab/fzf-tab.plugin.zsh
 
 # Syntax Highlighting (colorful command feedback)
-if [[ ! -d ~/.zsh-plugins/zsh-syntax-highlighting ]]; then
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh-plugins/zsh-syntax-highlighting
-fi
-source ~/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -r ~/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
+  source ~/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 bindkey '^F' autosuggest-accept
 

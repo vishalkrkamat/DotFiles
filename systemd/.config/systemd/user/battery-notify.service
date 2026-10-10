@@ -3,4 +3,4 @@ Description=Battery notification check
 
 [Service]
 Type=oneshot
-ExecStart=/home/vishal/Desktop/DotFiles/script/.config/script/battery_notify.sh
+ExecStart=%h/.config/script/battery_notify.sh
