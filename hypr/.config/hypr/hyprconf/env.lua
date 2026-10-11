@@ -4,10 +4,9 @@ hl.env("SDL_VIDEODRIVER", "wayland")
 hl.env("EGL_PLATFORM", "wayland")
 hl.env("MOZ_DISABLE_RDD_SANDBOX", "1")
 hl.env("XCURSOR_SIZE", "24")
-hl.env("XCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
+hl.env("XCURSOR_THEME", "capitaine-cursors")
 hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
 hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_THEME", "catppuccin-mocha-mauve-cursors")
 
 -- NVIDIA and other optional variables from the old config remain commented
 -- there; enable them here with hl.env(KEY, VALUE) if needed.
