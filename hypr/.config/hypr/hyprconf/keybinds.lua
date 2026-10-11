@@ -10,7 +10,7 @@ hl.bind(mod .. " + F", hl.dsp.window.fullscreen())
 
 hl.bind(mod .. " + BackSpace", hl.dsp.exec_cmd([[zsh -c '
 if ~/.config/script/get_state.sh; then
-    hyprctl dispatch exit
+    hyprctl dispatch "hl.dsp.exit()"
 else
     hyprctl notify -0 10000 "rgb(ff1ea3)" "Press again to exit"
     sleep 10 && rm -f /tmp/exit.lock
