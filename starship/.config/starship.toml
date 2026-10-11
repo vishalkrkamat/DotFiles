@@ -22,7 +22,7 @@ $line_break\
 $character"""
 
 add_newline = false
-palette = 'nord'
+palette = 'catppuccin_mocha'
 
 [directory]
 style = 'bold fg:dark_blue'
@@ -106,7 +106,7 @@ format = '[$symbol($profile )($duration )]($style)'
 
 [docker_context]
 symbol = ' '
-style = 'fg:#06969A'
+style = 'fg:teal'
 format = '[$symbol]($style) $path'
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
 detect_extensions = ['Dockerfile']
@@ -122,18 +122,18 @@ min_time = 500
 style = 'fg:gray'
 format = '[$duration]($style)'
 
-[palettes.nord]
-dark_blue = '#5E81AC'
-blue = '#81A1C1'
-teal = '#88C0D0'
-red = '#BF616A'
-orange = '#D08770'
-green = '#A3BE8C'
-yellow = '#EBCB8B'
-purple = '#B48EAD'
-gray = '#434C5E'
-black = '#2E3440'
-white='#D8DEE9'
+[palettes.catppuccin_mocha]
+dark_blue = '#89B4FA'
+blue = '#89B4FA'
+teal = '#94E2D5'
+red = '#F38BA8'
+orange = '#FAB387'
+green = '#A6E3A1'
+yellow = '#F9E2AF'
+purple = '#CBA6F7'
+gray = '#6C7086'
+black = '#11111B'
+white = '#CDD6F4'
 
 [palettes.onedark]
 dark_blue='#61afef'

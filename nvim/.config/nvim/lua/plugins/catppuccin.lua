@@ -4,6 +4,7 @@ return {
 	priority = 1000,
 	name = "catppuccin",
 	opts = {
+		flavour = "mocha",
 		integrations = {
 			aerial = true,
 			alpha = true,

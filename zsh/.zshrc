@@ -8,7 +8,6 @@ RPROMPT=''
 PS1=""
 
 export EDITOR=nvim
-export GTK_THEME=Adwaita-dark
 export GTK_APPLICATION_PREFER_DARK_THEME=1
 export LANG=en_US.UTF-8
 export PATH="$HOME/.cargo/bin:$PATH"
