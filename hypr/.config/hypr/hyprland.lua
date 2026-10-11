@@ -49,9 +49,9 @@ hl.config({
 })
 
 hl.on("hyprland.start", function()
-	-- Keep the original silent workspace placement for startup applications.
-	hl.exec_cmd([[hyprctl dispatch exec '[workspace 1 silent] zen-browser']])
-	hl.exec_cmd([[hyprctl dispatch exec '[workspace 2 silent] ]] .. terminal .. [[']])
+	-- Start each application silently on its assigned workspace.
+	hl.exec_cmd("zen-browser", { workspace = "1 silent" })
+	hl.exec_cmd(terminal, { workspace = "2 silent" })
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("~/.config/script/bright.sh")
