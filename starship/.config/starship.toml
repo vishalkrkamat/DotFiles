@@ -22,7 +22,7 @@ $line_break\
 $character"""
 
 add_newline = false
-palette = 'catppuccin_mocha'
+palette = 'active'
 
 [directory]
 style = 'bold fg:dark_blue'
@@ -147,3 +147,46 @@ yellow='#e5c07b'
 gray='#828997'
 white ='#abb2bf'
 black='#2c323c'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[palettes.active]
+dark_blue = '#3e8fb0'
+blue = '#3e8fb0'
+teal = '#9ccfd8'
+red = '#eb6f92'
+orange = '#f6c177'
+green = '#31748f'
+yellow = '#f6c177'
+purple = '#c4a7e7'
+gray = '#393552'
+black = '#191724'
+white = '#e0def4'

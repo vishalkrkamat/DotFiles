@@ -45,10 +45,10 @@
         "calendar": {
             "mode": "month",
             "format": {
-                "months": "<span color='#cad3f5'><b>{}</b></span>",
-                "days": "<span color='#b8c0e0'>{}</span>",
-                "weekdays": "<span color='#8aadf4'><b>{}</b></span>",
-                "today": "<span color='#a6da95'><b><u>{}</u></b></span>"
+                "months": "<span color='#e0def4'><b>{}</b></span>",
+                "days": "<span color='#908caa'>{}</span>",
+                "weekdays": "<span color='#3e8fb0'><b>{}</b></span>",
+                "today": "<span color='#31748f'><b><u>{}</u></b></span>"
             }
         }
     },

@@ -1,10 +1,12 @@
+local current_theme = require("core.current_theme")
+
 return {
 	"catppuccin/nvim",
 	lazy = false,
 	priority = 1000,
 	name = "catppuccin",
 	opts = {
-		flavour = "mocha",
+		flavour = current_theme.family == "catppuccin" and current_theme.flavor or "mocha",
 		integrations = {
 			aerial = true,
 			alpha = true,
@@ -56,6 +58,21 @@ return {
 		},
 	},
 	config = function()
-		vim.cmd.colorscheme("catppuccin")
+		if current_theme.family == "nord" then
+			require("lazy").load({ plugins = { "nightfox.nvim" } })
+			vim.cmd.colorscheme("nordfox")
+		elseif current_theme.family == "rose-pine" then
+			require("lazy").load({ plugins = { "rose-pine" } })
+			vim.cmd.colorscheme("rose-pine-moon")
+		elseif current_theme.family == "tokyo-night" then
+			require("lazy").load({ plugins = { "tokyonight.nvim" } })
+			vim.cmd.colorscheme("tokyonight-storm")
+		elseif current_theme.family == "everforest" then
+			vim.g.everforest_background = "medium"
+			require("lazy").load({ plugins = { "everforest" } })
+			vim.cmd.colorscheme("everforest")
+		else
+			vim.cmd.colorscheme("catppuccin")
+		end
 	end,
 }

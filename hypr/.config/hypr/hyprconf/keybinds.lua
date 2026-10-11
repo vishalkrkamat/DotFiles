@@ -19,6 +19,7 @@ fi']]))
 hl.bind(mod .. " + M", hl.dsp.exec_cmd(file_manager))
 hl.bind(mod .. " + V", hl.dsp.window.float())
 hl.bind(mod .. " + S", hl.dsp.exec_cmd(menu))
+hl.bind(mod .. " + T", hl.dsp.exec_cmd("~/.config/script/theme_picker.sh"))
 hl.bind(mod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mod .. " + SHIFT + Q", hl.dsp.exec_cmd("hyprlock"))
 
