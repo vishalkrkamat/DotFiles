@@ -5,6 +5,10 @@
 # Path to Waybar configuration file
 WAYBAR_CONFIG="$HOME/.config/waybar/config.jsonc"
 WAYBAR_STYLE="$HOME/.config/waybar/style.css"
+WAYBAR_LOG_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/waybar"
+WAYBAR_LOG="$WAYBAR_LOG_DIR/waybar.log"
+
+mkdir -p "$WAYBAR_LOG_DIR" || exit 1
 
 # Check if Waybar is already running
 if pgrep -x "waybar" > /dev/null
@@ -18,5 +22,5 @@ fi
 
 echo "Starting Waybar..."
 # Start Waybar with the specified configuration and style
-nohup env GDK_BACKEND=wayland waybar -c "$WAYBAR_CONFIG" -s "$WAYBAR_STYLE" >/dev/null 2>&1 </dev/null &
-echo "Waybar started."
+nohup env GDK_BACKEND=wayland waybar -c "$WAYBAR_CONFIG" -s "$WAYBAR_STYLE" >>"$WAYBAR_LOG" 2>&1 </dev/null &
+echo "Waybar started. Logs: $WAYBAR_LOG"

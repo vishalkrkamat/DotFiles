@@ -21,7 +21,7 @@ button {
 }
 
 #workspaces button {
-    color: #7a95c9;
+    color: @overlay2;
     box-shadow: inset 0 -3px transparent;
 
     padding-right: 3px;
@@ -33,7 +33,7 @@ button {
 }
 
 #workspaces button.active {
-    color: #ecd3a0;
+    color: @yellow;
     padding-left: 1px;
     padding-right: 12px;
     margin-left: 0em;
@@ -43,18 +43,18 @@ button {
 
 /* Style for hovered workspace buttons */
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: @surface0;
 }
 
 /* Style for urgent workspace buttons */
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: @red;
+    color: @crust;
 }
 
 #mode {
-    background-color: rgba(0, 0, 0, 0);
-    /*background-color: #64727D;*/
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: transparent;
+    box-shadow: inset 0 -3px @text;
 }
 
 #clock,
@@ -81,9 +81,17 @@ button {
 
 #custom-storage {
     color: @bluelight;
-    /* background-color: #111827; */
     border-radius: 14px;
     padding: 6px;
+}
+
+#custom-storage.warning {
+    color: @yellow;
+}
+
+#custom-storage.critical {
+    background-color: @red;
+    color: @crust;
 }
 
 #clock {
@@ -97,9 +105,8 @@ button {
 .modules-right,
 .modules-left,
 .modules-center {
-    /* background-color: @base; */
-    background-color: #111827;
-    border-radius: 0px;
+    background-color: @base;
+    border-radius: 12px;
 }
 
 .modules-right {
@@ -126,14 +133,18 @@ button {
 
 @keyframes blink {
     to {
-        color: #000000;
+        color: @crust;
     }
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.warning:not(.charging):not(.plugged) {
+    color: @yellow;
+}
+
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: @red;
+    color: @crust;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -142,7 +153,7 @@ button {
 }
 
 label:focus {
-    background-color: #000000;
+    background-color: @surface0;
 }
 
 #pulseaudio.muted {
