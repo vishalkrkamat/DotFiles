@@ -21,7 +21,7 @@ fi
 if [[ -z "$current_theme" && -r "$HOME/.config/nvim/lua/core/current_theme.lua" ]]; then
     current_theme=$(sed -n 's/.*id = "\([^"]*\)".*/\1/p' "$HOME/.config/nvim/lua/core/current_theme.lua" | head -n 1)
 fi
-[[ -n "$current_theme" ]] || current_theme=mocha
+[[ -n "$current_theme" ]] || current_theme=tokyo-night
 
 current_label=''
 items=()

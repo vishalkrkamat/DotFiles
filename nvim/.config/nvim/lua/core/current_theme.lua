@@ -1,1 +1,1 @@
-return { id = "rose-pine", family = "rose-pine", flavor = "moon" }
+return { id = "tokyo-night", family = "tokyo-night", flavor = "storm" }

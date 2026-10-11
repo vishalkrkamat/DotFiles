@@ -48,7 +48,7 @@ def color(name: str) -> str:
     return "#" + PALETTES[CURRENT][name]
 
 
-CURRENT = "mocha"
+CURRENT = "tokyo-night"
 
 
 def path(relative: str) -> Path:
