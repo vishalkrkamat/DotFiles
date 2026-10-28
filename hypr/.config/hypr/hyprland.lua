@@ -12,10 +12,18 @@ hl.monitor({
 	scale = 1,
 })
 
--- Keep the three standard workspaces visible and persistent on any display.
+-- Keep standard workspaces visible and use the same icons as the old Waybar.
+local workspace_icons = {
+	[1] = "",
+	[2] = "",
+	[3] = "",
+	[8] = "",
+}
 for workspace = 1, 3 do
-	hl.workspace_rule({ workspace = tostring(workspace), persistent = true })
+	hl.workspace_rule({ workspace = tostring(workspace), persistent = true, default_name = workspace_icons[workspace] })
+	hl.dispatch(hl.dsp.workspace.rename({ workspace = workspace, name = workspace_icons[workspace] }))
 end
+hl.workspace_rule({ workspace = "8", default_name = workspace_icons[8] })
 
 require("hyprconf/env")
 require("hyprconf/animation")
@@ -52,7 +60,7 @@ hl.on("hyprland.start", function()
 	-- Start each application silently on its assigned workspace.
 	hl.exec_cmd("zen-browser", { workspace = "1 silent" })
 	hl.exec_cmd(terminal, { workspace = "2 silent" })
-	hl.exec_cmd("waybar")
-	hl.exec_cmd("swaybg -i ~/Pictures/Wallpapers/wall5.png -m fill")
+	-- Prefer Noctalia when installed; otherwise retain the current session tools.
+	hl.exec_cmd([[if command -v noctalia >/dev/null 2>&1; then noctalia; else waybar; swaybg -i ~/Pictures/Wallpapers/wall5.png -m fill; fi]])
 	hl.exec_cmd("~/.config/script/bright.sh")
 end)
