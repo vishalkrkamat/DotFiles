@@ -27,12 +27,12 @@ enable_daemon = true
 
 [system.monitor]
 enabled = true
-# Disk space is the only live system statistic shown in the bar.
-cpu_poll_seconds = 0
-gpu_poll_seconds = 0
-memory_poll_seconds = 0
-network_poll_seconds = 0
-disk_poll_seconds = 60
+# Keep the System tab metrics sampled; the bar displays disk space only.
+cpu_poll_seconds = 2
+gpu_poll_seconds = 5
+memory_poll_seconds = 2
+network_poll_seconds = 3
+disk_poll_seconds = 10
 
 [bar.main]
 position = "top"
