@@ -1,0 +1,152 @@
+# Noctalia setup adapted from the existing Waybar configuration.
+# Existing Waybar, Mako, Wofi/Rofi, Hyprlock, and wallpaper configs are preserved.
+
+[shell]
+telemetry_enabled = false
+clipboard_enabled = true
+clipboard_history_max_entries = 100
+
+[shell.animation]
+enabled = true
+speed = 1.0
+
+[wallpaper]
+enabled = true
+fill_mode = "crop"
+directory = "~/Pictures/Wallpapers"
+
+[wallpaper.default]
+path = "~/Pictures/Wallpapers/wall5.png"
+
+[theme]
+mode = "dark"
+builtin = "Tokyo-Night"
+
+[notification]
+enable_daemon = true
+
+[system.monitor]
+enabled = true
+# Disk space is the only live system statistic shown in the bar.
+cpu_poll_seconds = 0
+gpu_poll_seconds = 0
+memory_poll_seconds = 0
+network_poll_seconds = 0
+disk_poll_seconds = 60
+
+[bar.main]
+position = "top"
+thickness = 37
+background_opacity = 1.0
+compositor_blur = false
+radius = 0
+margin_ends = 0
+margin_edge = 0
+padding = 10
+widget_spacing = 6
+shadow = false
+reserve_space = true
+capsule = false
+start = ["active_window"]
+center = ["workspaces"]
+end = ["group:system", "clock", "group:utilities", "session"]
+
+[[bar.main.capsule_group]]
+id = "system"
+members = ["disk", "volume", "network", "battery"]
+fill = "#24283b"
+border = "#414868"
+border_width = 1
+padding = 8
+radius = 12
+opacity = 0.95
+widget_spacing = 10
+
+[[bar.main.capsule_group]]
+id = "utilities"
+members = ["clipboard", "notifications", "screenshot", "wallpaper", "control-center"]
+fill = "#24283b"
+border = "#414868"
+border_width = 1
+padding = 8
+radius = 12
+opacity = 0.95
+widget_spacing = 10
+
+[widget.clock]
+format = "{:%I:%M%p}"
+color = "#f7768e"
+capsule = true
+capsule_fill = "#24283b"
+capsule_border = "#414868"
+capsule_border_width = 1
+capsule_padding = 8
+capsule_radius = 12
+
+[widget.active_window]
+color = "#f7768e"
+icon_size = 20
+
+[widget.workspaces]
+style = "regular"
+scale = 1.2
+label_source = "name"
+max_label_chars = 1
+active_pill_size = 1.5
+inactive_pill_size = 1.0
+focused_color = "#7aa2f7"
+occupied_color = "#737aa2"
+empty_color = "#737aa2"
+urgent_color = "#f7768e"
+
+[widget.disk]
+type = "sysmon"
+stat = "disk_free"
+path = "/"
+color = "#7aa2f7"
+
+[widget.volume]
+type = "volume"
+color = "#f7768e"
+mute_color = "#c0caf5"
+
+[widget.network]
+type = "network"
+color = "#e0af68"
+
+[widget.battery]
+type = "battery"
+color = "#9ece6a"
+warning_color = "#e0af68"
+
+[widget.clipboard]
+type = "clipboard"
+
+[widget.screenshot]
+type = "screenshot"
+
+[widget.screenshot.actions]
+left = "screenshot-region"
+
+
+[widget.notifications]
+type = "notifications"
+
+[widget.wallpaper]
+type = "wallpaper"
+
+[widget.control-center]
+type = "control-center"
+
+[widget.session]
+type = "session"
+capsule = true
+capsule_fill = "#24283b"
+capsule_border = "#414868"
+capsule_border_width = 1
+capsule_padding = 8
+capsule_radius = 12
+
+[shell.screenshot]
+directory = "~/Pictures/Screenshots"
+filename_pattern = "screenshot_%Y-%m-%d_%H-%M-%S"
